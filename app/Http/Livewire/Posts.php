@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Post;
+use App\Models\User;
 
 class Posts extends Component
 {
@@ -19,10 +20,12 @@ class Posts extends Component
     {
         $user = auth()->user();
         $this->posts = $user->posts;
-        //$this->posts = Post::all();
         return view('livewire.posts');
     }
+    public function index() {
 
+        return view('livewire.posts_public');
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -79,7 +82,7 @@ class Posts extends Component
 
         Post::updateOrCreate(['id' => $this->post_id], [
             'title' => $this->title,
-            'body' => $this->body
+            'body' => $this->body,
         ]);
 
         session()->flash('message',

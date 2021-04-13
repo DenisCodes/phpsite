@@ -25,7 +25,7 @@ class PageFactory extends Factory
         return [
             'title' => $this->faker->sentence,
             'body' => $this->faker->sentence,
-            'user_id' => user::factory(),
+            'user_id' => User::factory(),
         ];
     }
 }

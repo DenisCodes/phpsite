@@ -20,7 +20,7 @@ class Page extends Model
     {
         parent::boot();
         static::creating(function ($model) {
-            if(Auth::id() !=null) {
+            if(Auth::id() != null) {
                 $model->user_id = Auth::id();
             }
         });

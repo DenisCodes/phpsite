@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Post;
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 
-class PostController extends Controller
+class PostsController extends Controller
 {
     public function show($id)
     {
@@ -17,7 +17,7 @@ class PostController extends Controller
     public function index()
     {
         return view('posts', [
-           'posts' => Post::all()
+            'posts' => Post::all()
         ]);
     }
 }
